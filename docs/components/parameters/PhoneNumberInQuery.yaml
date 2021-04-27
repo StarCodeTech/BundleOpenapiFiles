@@ -1,0 +1,6 @@
+name: phone
+in: query
+description: 手机号码
+required: true
+schema:
+  $ref: "#/components/schemas/PhoneNumber"

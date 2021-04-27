@@ -1,0 +1,19 @@
+- name: pageNum
+  in: query
+  description: 页码
+  required: true
+  schema:
+    type: integer
+    format: int32
+- name: pageSize
+  in: query
+  description: 大小
+  required: true
+  schema:
+    type: integer
+    format: int32
+- name: queryId
+  in: query
+  description: 查询 id
+  schema:
+    $ref: '#/components/schemas/GUID'

@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "strict": true,
+    "pretty": true,
+    "target": "ES2020",
+    "module": "CommonJS",
+    "esModuleInterop": true
+  },
+  "rules": {
+    "prettier": true,
+    "curly": true,
+    "trailing-comma": true,
+    "semicolon": [true, "always"],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "private-static-field",
+          "protected-static-field",
+          "public-static-field",
+          "private-instance-field",
+          "protected-instance-field",
+          "public-instance-field",
+          "private-static-method",
+          "protected-static-method",
+          "public-static-method",
+          "private-constructor",
+          "protected-constructor",
+          "public-constructor",
+          "private-instance-method",
+          "protected-instance-method",
+          "public-instance-method"
+        ]
+      }
+    ],
+    "interface-name": [true, "always-prefix"],
+    "quotemark": false,
+    "no-console": false,
+    "variable-name": false,
+    "object-literal-sort-keys": false,
+    "arrow-parens": false,
+    "radix": false,
+    "only-arrow-functions": false,
+    "ordered-imports": true,
+    "no-unused-expression": false,
+    "no-unused-variable": false,
+    "max-line-length": {
+      "options": 512
+    }
+  },
+  "linterOptions": {
+    "exclude": ["dist/", "node_modules/"]
+  }
+}

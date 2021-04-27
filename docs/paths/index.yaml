@@ -1,0 +1,13 @@
+# Session
+"/session/login":
+  $ref: ./session/login.yaml
+"/session/login/code":
+  $ref: ./session/loginCode.yaml
+"/session/logout":
+  $ref: ./session/logout.yaml
+"/session/refreshToken":
+  $ref: ./session/refreshToken.yaml
+"/session/register":
+  $ref: ./session/register.yaml
+"/session/register/code":
+  $ref: ./session/registerCode.yaml

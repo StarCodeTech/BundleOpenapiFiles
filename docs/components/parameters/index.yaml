@@ -1,0 +1,8 @@
+IdInPath:
+  $ref: ./IdInPath.yaml
+Page:
+  $ref: ./Page.yaml
+PhoneNumberInQuery:
+  $ref: ./PhoneNumberInQuery.yaml
+SearchKeywords:
+  $ref: ./SearchKeywords.yaml

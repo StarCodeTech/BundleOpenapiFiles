@@ -1,0 +1,8 @@
+GUID:
+  $ref: ./GUID.yaml
+PhoneNumber:
+  $ref: ./PhoneNumber.yaml
+UserAccount:
+  $ref: ./UserAccount.yaml
+UserAccountBody:
+  $ref: ./UserAccountBody.yaml

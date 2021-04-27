@@ -1,0 +1,8 @@
+post:
+  tags:
+    - Session
+  summary: 发送手机登录校验码
+  security: []
+  operationId: sendLoginVerificationCode
+  parameters:
+    - $ref: "#/components/parameters/PhoneNumberInQuery"

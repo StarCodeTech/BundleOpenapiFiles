@@ -1,0 +1,11 @@
+type: string
+description: >
+  意见反馈类型:
+    * `Function` - 功能问题
+    * `Optimization` - 优化建议
+    * `Other` - 其他反馈
+enum:
+  - Function
+  - Optimization
+  - Other
+example: Function

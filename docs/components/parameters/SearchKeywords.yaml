@@ -1,0 +1,5 @@
+name: s
+in: query
+description: 搜索词
+schema:
+  type: string

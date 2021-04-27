@@ -1,0 +1,315 @@
+openapi: 3.0.1
+info:
+  title: Openapi demo
+  description: 多文件 openapi 声明模板
+  contact:
+    email: rong.w.tang@outlook.com
+  version: 1.0.0
+servers:
+  - url: http://candycloud.cc
+tags:
+  - name: Session
+    description: 用户认证
+paths:
+  /session/login:
+    post:
+      tags:
+        - Session
+      summary: 用户登录
+      security: []
+      operationId: login
+      responses:
+        '200':
+          description: 服务器成功处理了请求，有返回数据
+        '204':
+          description: 已成功登录,请保存 Authorization 中的 JWT 信息
+          headers:
+            Authorization:
+              description: JWT 承载字段
+              required: true
+              schema:
+                type: string
+        '401':
+          description: 服务器已经理解请求，但是拒绝执行它。当前请求需要用户验证。
+        '403':
+          description: 服务器已经理解请求，但是拒绝执行它。没有访问资源所需的权限。
+        '404':
+          description: 请求所希望得到的资源未被在服务器上发现。
+        '408':
+          description: 请求超时。
+        '415':
+          description: 对于当前请求的方法和所请求的资源，请求中提交的实体并不是服务器中所支持的格式，因此请求被拒绝。
+        '422':
+          description: 请求格式正确，但是由于含有语义错误，无法响应。错误信息包含在返回的消息体中。
+        '500':
+          description: 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。
+  /session/login/code:
+    post:
+      tags:
+        - Session
+      summary: 发送手机登录校验码
+      security: []
+      operationId: sendLoginVerificationCode
+      parameters:
+        - name: phone
+          in: query
+          description: 手机号码
+          required: true
+          schema:
+            $ref: '#/components/schemas/PhoneNumber'
+      responses:
+        '200':
+          description: 服务器成功处理了请求，有返回数据
+        '204':
+          description: 服务器成功处理了请求，没有返回数据
+        '401':
+          description: 服务器已经理解请求，但是拒绝执行它。当前请求需要用户验证。
+        '403':
+          description: 服务器已经理解请求，但是拒绝执行它。没有访问资源所需的权限。
+        '404':
+          description: 请求所希望得到的资源未被在服务器上发现。
+        '408':
+          description: 请求超时。
+        '415':
+          description: 对于当前请求的方法和所请求的资源，请求中提交的实体并不是服务器中所支持的格式，因此请求被拒绝。
+        '422':
+          description: 请求格式正确，但是由于含有语义错误，无法响应。错误信息包含在返回的消息体中。
+        '500':
+          description: 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。
+  /session/logout:
+    post:
+      tags:
+        - Session
+      summary: 退出登录
+      operationId: logout
+      responses:
+        '200':
+          description: 服务器成功处理了请求，有返回数据
+        '204':
+          description: 服务器成功处理了请求，没有返回数据
+        '401':
+          description: 服务器已经理解请求，但是拒绝执行它。当前请求需要用户验证。
+        '403':
+          description: 服务器已经理解请求，但是拒绝执行它。没有访问资源所需的权限。
+        '404':
+          description: 请求所希望得到的资源未被在服务器上发现。
+        '408':
+          description: 请求超时。
+        '415':
+          description: 对于当前请求的方法和所请求的资源，请求中提交的实体并不是服务器中所支持的格式，因此请求被拒绝。
+        '422':
+          description: 请求格式正确，但是由于含有语义错误，无法响应。错误信息包含在返回的消息体中。
+        '500':
+          description: 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。
+  /session/refreshToken:
+    post:
+      tags:
+        - Session
+      summary: 刷新 Token
+      operationId: refreshToken
+      responses:
+        '200':
+          description: 服务器成功处理了请求，有返回数据
+        '204':
+          description: token 已刷新,请保存 Authorization 中的 JWT 信息
+          headers:
+            Authorization:
+              description: JWT 承载字段
+              required: true
+              schema:
+                type: string
+        '401':
+          description: 服务器已经理解请求，但是拒绝执行它。当前请求需要用户验证。
+        '403':
+          description: 服务器已经理解请求，但是拒绝执行它。没有访问资源所需的权限。
+        '404':
+          description: 请求所希望得到的资源未被在服务器上发现。
+        '408':
+          description: 请求超时。
+        '415':
+          description: 对于当前请求的方法和所请求的资源，请求中提交的实体并不是服务器中所支持的格式，因此请求被拒绝。
+        '422':
+          description: 请求格式正确，但是由于含有语义错误，无法响应。错误信息包含在返回的消息体中。
+        '500':
+          description: 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。
+  /session/register:
+    post:
+      tags:
+        - Session
+      summary: 用户注册
+      security: []
+      operationId: register
+      responses:
+        '200':
+          description: 服务器成功处理了请求，有返回数据
+        '204':
+          description: OK
+          headers:
+            Authorization:
+              description: JWT 承载字段
+              required: true
+              schema:
+                type: string
+        '401':
+          description: 服务器已经理解请求，但是拒绝执行它。当前请求需要用户验证。
+        '403':
+          description: 服务器已经理解请求，但是拒绝执行它。没有访问资源所需的权限。
+        '404':
+          description: 请求所希望得到的资源未被在服务器上发现。
+        '408':
+          description: 请求超时。
+        '415':
+          description: 对于当前请求的方法和所请求的资源，请求中提交的实体并不是服务器中所支持的格式，因此请求被拒绝。
+        '422':
+          description: 请求格式正确，但是由于含有语义错误，无法响应。错误信息包含在返回的消息体中。
+        '500':
+          description: 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。
+  /session/register/code:
+    post:
+      tags:
+        - Session
+      summary: 发送手机注册校验码
+      security: []
+      operationId: sendRegisterVerificationCode
+      parameters:
+        - name: phone
+          in: query
+          description: 手机号码
+          required: true
+          schema:
+            $ref: '#/components/schemas/PhoneNumber'
+      responses:
+        '200':
+          description: 服务器成功处理了请求，有返回数据
+        '204':
+          description: 服务器成功处理了请求，没有返回数据
+        '401':
+          description: 服务器已经理解请求，但是拒绝执行它。当前请求需要用户验证。
+        '403':
+          description: 服务器已经理解请求，但是拒绝执行它。没有访问资源所需的权限。
+        '404':
+          description: 请求所希望得到的资源未被在服务器上发现。
+        '408':
+          description: 请求超时。
+        '415':
+          description: 对于当前请求的方法和所请求的资源，请求中提交的实体并不是服务器中所支持的格式，因此请求被拒绝。
+        '422':
+          description: 请求格式正确，但是由于含有语义错误，无法响应。错误信息包含在返回的消息体中。
+        '500':
+          description: 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。
+components:
+  schemas:
+    EFeedbackType:
+      type: string
+      description: |
+        意见反馈类型:
+          * `Function` - 功能问题
+          * `Optimization` - 优化建议
+          * `Other` - 其他反馈
+      enum:
+        - Function
+        - Optimization
+        - Other
+      example: Function
+    GUID:
+      type: string
+      pattern: ^\d+$
+    PhoneNumber:
+      type: string
+      pattern: ^\d+$
+    UserAccount:
+      type: object
+      required:
+        - name
+        - language
+        - id
+      properties:
+        name:
+          type: string
+          description: 姓名
+        avatar:
+          type: string
+          description: 头像
+        weChat:
+          type: string
+          description: 微信
+        language:
+          type: string
+          description: 语言
+        id:
+          type: string
+          pattern: ^\d+$
+    UserAccountBody:
+      type: object
+      required:
+        - name
+        - language
+      properties:
+        name:
+          type: string
+          description: 姓名
+        avatar:
+          type: string
+          description: 头像
+        weChat:
+          type: string
+          description: 微信
+        language:
+          type: string
+          description: 语言
+  responses:
+    UserAccount:
+      description: 用户基本信息
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAccount'
+  parameters:
+    IdInPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        pattern: ^\d+$
+    PhoneNumberInQuery:
+      name: phone
+      in: query
+      description: 手机号码
+      required: true
+      schema:
+        type: string
+        pattern: ^\d+$
+    SearchKeywords:
+      name: s
+      in: query
+      description: 搜索词
+      schema:
+        type: string
+  requestBodies:
+    UserAccount:
+      description: 用户基本信息
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAccountBody'
+  headers:
+    Authorization:
+      description: JWT 承载字段
+      required: true
+      schema:
+        type: string
+    X-Appid:
+      description: 发起请求的客户端应用 id
+      required: true
+      schema:
+        type: string
+        pattern: ^\d+$
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []

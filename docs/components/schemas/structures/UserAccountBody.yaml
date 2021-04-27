@@ -1,0 +1,17 @@
+type: object
+required:
+  - name
+  - language
+properties:
+  name:
+    type: string
+    description: 姓名
+  avatar:
+    type: string
+    description: 头像
+  weChat:
+    type: string
+    description: 微信
+  language:
+    type: string
+    description: 语言

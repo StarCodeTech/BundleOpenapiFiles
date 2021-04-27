@@ -1,0 +1,24 @@
+schemas:
+  $ref: ./schemas/index.yaml
+responses:
+  $ref: ./responses/index.yaml
+parameters:
+  $ref: ./parameters/index.yaml
+requestBodies:
+  $ref: ./requestBodies/index.yaml
+headers:
+  Authorization:
+    description: JWT 承载字段
+    required: true
+    schema:
+      type: string
+  X-Appid:
+    description: 发起请求的客户端应用 id
+    required: true
+    schema:
+      $ref: "#/components/schemas/GUID"
+securitySchemes:
+  bearerAuth:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT

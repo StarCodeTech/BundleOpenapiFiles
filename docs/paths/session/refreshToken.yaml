@@ -1,0 +1,11 @@
+post:
+  tags:
+    - Session
+  summary: 刷新 Token
+  operationId: refreshToken
+  responses:
+    "204":
+      description: token 已刷新,请保存 Authorization 中的 JWT 信息
+      headers:
+        Authorization:
+          $ref: "#/components/headers/Authorization"

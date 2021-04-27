@@ -1,0 +1,25 @@
+{
+  "name": "bundle.openapi.files",
+  "version": "1.0.0",
+  "private": true,
+  "title": "Bundle openapi specification files",
+  "description": "打包被拆分的 openapi 声明文件",
+  "main": "src/main.ts",
+  "scripts": {
+    "bundle": "node -r ts-node/register ./src/main.ts"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^10.0.2",
+    "js-yaml": "^4.1.0",
+    "json-refs": "^3.0.15",
+    "lodash": "^4.17.21",
+    "openapi-types": "^8.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.1",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.41"
+  }
+}

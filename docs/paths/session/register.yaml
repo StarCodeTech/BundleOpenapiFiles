@@ -1,0 +1,12 @@
+post:
+  tags:
+    - Session
+  summary: 用户注册
+  security: []
+  operationId: register
+  responses:
+    "204":
+      description: OK
+      headers:
+        Authorization:
+          $ref: "#/components/headers/Authorization"

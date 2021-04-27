@@ -1,0 +1,18 @@
+openapi: 3.0.1
+info:
+  title: Openapi demo
+  description: 多文件 openapi 声明模板
+  contact:
+    email: rong.w.tang@outlook.com
+  version: 1.0.0
+servers:
+  - url: http://candycloud.cc
+tags:
+  - name: Session
+    description: 用户认证
+paths:
+  $ref: ./paths/index.yaml
+components:
+  $ref: ./components/index.yaml
+security:
+  - bearerAuth: []
